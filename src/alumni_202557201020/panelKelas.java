@@ -70,7 +70,7 @@ public class panelKelas extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(789, Short.MAX_VALUE))
+                .addContainerGap(849, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,15 +122,14 @@ public class panelKelas extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING, 0, 366, Short.MAX_VALUE)
                     .addComponent(jLabel6)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel1)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField1)
-                        .addComponent(jComboBox1, 0, 366, Short.MAX_VALUE)))
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField2)
+                    .addComponent(jTextField1)
+                    .addComponent(jComboBox1, 0, 366, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -169,24 +168,28 @@ public class panelKelas extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(0, 181, 53));
         jButton1.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/typcn_plus.png"))); // NOI18N
         jButton1.setText("Tambah");
         jPanel8.add(jButton1);
 
         jButton2.setBackground(new java.awt.Color(255, 153, 0));
         jButton2.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/mdi_edit.png"))); // NOI18N
         jButton2.setText("Ubah");
         jPanel8.add(jButton2);
 
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/material-symbols_delete-rounded (1).png"))); // NOI18N
         jButton3.setText("Hapus");
         jPanel8.add(jButton3);
 
         jButton4.setBackground(new java.awt.Color(58, 153, 250));
         jButton4.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/ri_reset-left-fill.png"))); // NOI18N
         jButton4.setText("Reset");
         jPanel8.add(jButton4);
 
@@ -194,7 +197,9 @@ public class panelKelas extends javax.swing.JPanel {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 7, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -376,6 +376,9 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/alumni_202557201020/img/typcn_plus.png"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Tambah"/>
                       </Properties>
                     </Component>
@@ -389,6 +392,9 @@
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/alumni_202557201020/img/mdi_edit.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Ubah"/>
                       </Properties>
@@ -404,6 +410,9 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/alumni_202557201020/img/material-symbols_delete-rounded (1).png"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Hapus"/>
                       </Properties>
                     </Component>
@@ -417,6 +426,9 @@
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/alumni_202557201020/img/ri_reset-left-fill.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Reset"/>
                       </Properties>

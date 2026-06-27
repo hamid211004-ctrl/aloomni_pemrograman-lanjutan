@@ -66,7 +66,7 @@ public class panelGuru extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(786, Short.MAX_VALUE))
+                .addContainerGap(855, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +141,7 @@ public class panelGuru extends javax.swing.JPanel {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.LINE_START);
@@ -156,24 +156,28 @@ public class panelGuru extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(0, 181, 53));
         jButton1.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/typcn_plus.png"))); // NOI18N
         jButton1.setText("Tambah");
         jPanel6.add(jButton1);
 
         jButton2.setBackground(new java.awt.Color(255, 153, 0));
         jButton2.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/mdi_edit.png"))); // NOI18N
         jButton2.setText("Ubah");
         jPanel6.add(jButton2);
 
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/material-symbols_delete-rounded (1).png"))); // NOI18N
         jButton3.setText("Hapus");
         jPanel6.add(jButton3);
 
         jButton4.setBackground(new java.awt.Color(58, 153, 250));
         jButton4.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/ri_reset-left-fill.png"))); // NOI18N
         jButton4.setText("Reset");
         jPanel6.add(jButton4);
 
@@ -181,7 +185,9 @@ public class panelGuru extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 13, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -81,24 +81,28 @@ public class paneljurusan extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(0, 181, 53));
         jButton1.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/typcn_plus.png"))); // NOI18N
         jButton1.setText("Tambah");
         jPanel4.add(jButton1);
 
         jButton2.setBackground(new java.awt.Color(255, 153, 0));
         jButton2.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/mdi_edit.png"))); // NOI18N
         jButton2.setText("Ubah");
         jPanel4.add(jButton2);
 
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/material-symbols_delete-rounded (1).png"))); // NOI18N
         jButton3.setText("Hapus");
         jPanel4.add(jButton3);
 
         jButton4.setBackground(new java.awt.Color(58, 153, 250));
         jButton4.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumni_202557201020/img/ri_reset-left-fill.png"))); // NOI18N
         jButton4.setText("Reset");
         jPanel4.add(jButton4);
 
@@ -119,7 +123,7 @@ public class paneljurusan extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
