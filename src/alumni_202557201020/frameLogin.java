@@ -4,7 +4,14 @@
  */
 package alumni_202557201020;
 
+import alumni_202557201020.config.koneksi;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -137,7 +144,52 @@ public class frameLogin extends javax.swing.JFrame {
 
     private void bLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLoginActionPerformed
         // TODO add your handling code here:
+        //Ambil teks yang dimasukkan user pada field username
+        String username = tUsername.getText();
         
+        //Ambil teks yang dimasukkan user pada field password
+        String password = tPassword.getText();
+        
+        //periksa apakah username dan password tidak kosong
+        if (username.length() != 0 && password.length() != 0){
+            try {
+                //Query SQL untuk mencari user dengan username dan password (dihash dengan MDS)
+                String sql = "SELECT * FROM user WHERE username=? AND password=md5(?)";
+
+                //Buat koneksi ke database
+                Connection con = koneksi.konek();
+
+                //siapkan statement SQL dengan parameter
+                PreparedStatement ps = con.prepareStatement(sql);
+
+                //isi parameter pertama (?) dengan username
+                ps.setString(1, username);
+
+                //isi parameter kedua (?) dengan password yang akan dihash MD5 di sisi database
+                ps.setString(2, password);
+
+                //jalankan query dan ambil hasilnya
+                ResultSet rs = ps.executeQuery();
+
+                //jika hasil query memiliki baris (berarti login berhasil)
+                if (rs.next()) {
+                    //tutup form login
+                    dispose();
+
+                    //buka form Dashboard
+                    new frameDashboard().setVisible(true);
+                } else {
+                    //jika data tidak ditemukan, tampilkan pesan error
+                    JOptionPane.showMessageDialog(null, "Username/password salah");
+                }
+            } catch (SQLException sQLException) {
+                //jika terjadi kesalahan SQL, tampilkan pesan error
+                JOptionPane.showMessageDialog(null, sQLException.getMessage());
+            } 
+        }else {
+            //jika usename atau password kosong, beri peringatan ke user
+            JOptionPane.showMessageDialog(null, "Username/password tidak boleh kosong");
+        }
     }//GEN-LAST:event_bLoginActionPerformed
 
     /**

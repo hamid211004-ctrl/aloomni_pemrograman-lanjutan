@@ -4,6 +4,12 @@
  */
 package alumni_202557201020;
 
+import alumni_202557201020.config.koneksi;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author ASUS
@@ -15,7 +21,67 @@ public class panelDashboard extends javax.swing.JPanel {
      */
     public panelDashboard() {
         initComponents();
+        
+        isiJumlahDataDasbor();
     }
+    
+    private void isiJumlahDataDasbor() {
+
+    // Membuka koneksi ke database
+    Connection conn = koneksi.konek();
+
+    try {
+
+        // Mengambil jumlah data jurusan dari tabel jurusan
+        String sqlJurusan = "SELECT COUNT(*) AS jumlah FROM jurusan";
+        Statement psJurusan = conn.createStatement();
+        ResultSet rsJurusan = psJurusan.executeQuery(sqlJurusan);
+
+        // Jika hasil query tersedia, ambil nilai jumlah dan tampilkan pada label jumlah jurusan
+        if (rsJurusan.next()) {
+            int jumlah = rsJurusan.getInt("jumlah");
+            tJumlahJurusan.setText(String.valueOf(jumlah));
+        }
+
+        // Mengambil jumlah data guru dari tabel guru
+        String sqlGuru = "SELECT COUNT(*) AS jumlah FROM guru";
+        Statement psGuru = conn.createStatement();
+        ResultSet rsGuru = psGuru.executeQuery(sqlGuru);
+
+        // Jika hasil query tersedia, ambil nilai jumlah dan tampilkan pada label jumlah guru
+        if (rsGuru.next()) {
+            int jumlah = rsGuru.getInt("jumlah");
+            tJumlahGuru.setText(String.valueOf(jumlah));
+        }
+
+        // Mengambil jumlah data siswa dari tabel siswa
+        String sqlSiswa = "SELECT COUNT(*) AS jumlah FROM siswa";
+        Statement psSiswa = conn.createStatement();
+        ResultSet rsSiswa = psSiswa.executeQuery(sqlSiswa);
+
+        // Jika hasil query tersedia, ambil nilai jumlah dan tampilkan pada label jumlah siswa
+        if (rsSiswa.next()) {
+            int jumlah = rsSiswa.getInt("jumlah");
+            tJumlahSiswa.setText(String.valueOf(jumlah));
+        }
+
+        // Mengambil jumlah data kelas dari tabel kelas
+        String sqlKelas = "SELECT COUNT(*) AS jumlah FROM kelas";
+        Statement psKelas = conn.createStatement();
+        ResultSet rsKelas = psKelas.executeQuery(sqlKelas);
+
+        // Jika hasil query tersedia, ambil nilai jumlah dan tampilkan pada label jumlah kelas
+        if (rsKelas.next()) {
+            int jumlah = rsKelas.getInt("jumlah");
+            tJumlahKelas.setText(String.valueOf(jumlah));
+        }
+
+    } catch (SQLException e) {
+
+        // Menampilkan pesan pada konsol jika terjadi kesalahan saat mengambil data
+        System.err.println("Gagal mengambil jumlah data");
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,22 +97,22 @@ public class panelDashboard extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        tJumlahJurusan = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        tJumlahGuru = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        tJumlahSiswa = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        tJumlahKelas = new javax.swing.JLabel();
 
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 20, true));
         setLayout(new java.awt.CardLayout());
@@ -73,10 +139,10 @@ public class panelDashboard extends javax.swing.JPanel {
 
         jPanel3.add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
-        jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("JJ");
-        jPanel3.add(jLabel1, java.awt.BorderLayout.CENTER);
+        tJumlahJurusan.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        tJumlahJurusan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tJumlahJurusan.setText("JJ");
+        jPanel3.add(tJumlahJurusan, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
@@ -101,10 +167,10 @@ public class panelDashboard extends javax.swing.JPanel {
 
         jPanel6.add(jPanel7, java.awt.BorderLayout.PAGE_START);
 
-        jLabel6.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("JG");
-        jPanel6.add(jLabel6, java.awt.BorderLayout.CENTER);
+        tJumlahGuru.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        tJumlahGuru.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tJumlahGuru.setText("JG");
+        jPanel6.add(tJumlahGuru, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(jPanel6, java.awt.BorderLayout.PAGE_START);
 
@@ -124,15 +190,15 @@ public class panelDashboard extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Jumlah Kelas");
+        jLabel4.setText("Jumlah Siswa");
         jPanel10.add(jLabel4, java.awt.BorderLayout.CENTER);
 
         jPanel9.add(jPanel10, java.awt.BorderLayout.PAGE_START);
 
-        jLabel7.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("JK");
-        jPanel9.add(jLabel7, java.awt.BorderLayout.CENTER);
+        tJumlahSiswa.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        tJumlahSiswa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tJumlahSiswa.setText("JK");
+        jPanel9.add(tJumlahSiswa, java.awt.BorderLayout.CENTER);
 
         jPanel8.add(jPanel9, java.awt.BorderLayout.PAGE_START);
 
@@ -152,15 +218,15 @@ public class panelDashboard extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Jumlah Siswa");
+        jLabel5.setText("Jumlah Kelas");
         jPanel13.add(jLabel5, java.awt.BorderLayout.CENTER);
 
         jPanel12.add(jPanel13, java.awt.BorderLayout.PAGE_START);
 
-        jLabel8.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("JS");
-        jPanel12.add(jLabel8, java.awt.BorderLayout.CENTER);
+        tJumlahKelas.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        tJumlahKelas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tJumlahKelas.setText("JS");
+        jPanel12.add(tJumlahKelas, java.awt.BorderLayout.CENTER);
 
         jPanel11.add(jPanel12, java.awt.BorderLayout.PAGE_START);
 
@@ -171,14 +237,10 @@ public class panelDashboard extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -192,5 +254,9 @@ public class panelDashboard extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel tJumlahGuru;
+    private javax.swing.JLabel tJumlahJurusan;
+    private javax.swing.JLabel tJumlahKelas;
+    private javax.swing.JLabel tJumlahSiswa;
     // End of variables declaration//GEN-END:variables
 }
