@@ -317,7 +317,6 @@ public class panelKelas extends javax.swing.JPanel {
         jLabel6.setText("Wali Kelas");
 
         cWali.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        cWali.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Wali kelas" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -493,11 +492,25 @@ public class panelKelas extends javax.swing.JPanel {
         //Ambil input dari text field dan combo box pada GUI
         String kodeKelas = tKodeKelas.getText();
         String namaKelas = tNamaKelas.getText();
+        
+        if (cTingkatan.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Tingkatran harus dipilih!");
+            return;
+        }
         String tingkatan = cTingkatan.getSelectedItem().toString();
         
+        if (cJurusan.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Jurusan harus dipilih!");
+            return;
+        }
         //ambil nama jurusan dari combo box lalu ubah ke kode jurusan menggunakan method kodeJurusan
         String jurusan = kodeJurusan(cJurusan.getSelectedItem().toString());
         
+        
+        if (cWali.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Wali Kelas harus dipilih!");
+            return;
+        }
          //ambil nama nama wali kelas dari combo box lalu ubah ke nip menggunakan method NIP
         String wali = NIP(cWali.getSelectedItem().toString());
 

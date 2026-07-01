@@ -50,7 +50,7 @@ public class panelGuru extends javax.swing.JPanel {
         tAlamat.setText(null);
     }
     
-    //membuat method untuk menampilkan data jurusan
+    //membuat method untuk menampilkan data guru
     void load_tabel_guru(){
         //membuat objek model tabel baru
         DefaultTableModel model = new DefaultTableModel();
@@ -61,7 +61,7 @@ public class panelGuru extends javax.swing.JPanel {
         model.addColumn("L/P");
         model.addColumn("Alamat");
         
-        //Query SQL untuk mengambil semua data dari tabel jurusan
+        //Query SQL untuk mengambil semua data dari tabel guru
         String sql = "SELECT * FROM guru";
         
         try {
@@ -167,7 +167,7 @@ public class panelGuru extends javax.swing.JPanel {
         tNamaGuru.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
 
         cJK.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        cJK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-Laki", "Perempuan" }));
+        cJK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - laki", "Perempuan" }));
 
         tAlamat.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
 
@@ -311,7 +311,7 @@ public class panelGuru extends javax.swing.JPanel {
 
     private void tblGuruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGuruMouseClicked
         // TODO add your handling code here:
-        //Ambil indeks baris yang diklik oleh pengguna ditabel tblJurusan
+        //Ambil indeks baris yang diklik oleh pengguna ditabel tblGuru
         int barisYangDipilih = tblGuru.rowAtPoint(evt.getPoint());
         
         //Ambil nilai baris yang dipilih pada tabel guru
@@ -343,7 +343,7 @@ public class panelGuru extends javax.swing.JPanel {
         switch (JK){
             //jika nilai JK "L", set pilihan combo box ke "laki-laki"
             case "L":
-                cJK.setSelectedItem("Laki-Laki");
+                cJK.setSelectedItem("Laki - laki");
                 break;
                 
             //jika nilai JK "P", set pilihan combo box ke "perempuan"
@@ -363,6 +363,10 @@ public class panelGuru extends javax.swing.JPanel {
         //Ambil input dari text field dan combo box pada GUI
         String NIP = tNIP.getText();
         String namaGuru = tNamaGuru.getText();
+        if (cJK.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Jenis kelamin harus dipilih!");
+            return;
+        }
         String JK = cJK.getSelectedItem().toString();
         String alamat = tAlamat.getText();
         
@@ -371,18 +375,18 @@ public class panelGuru extends javax.swing.JPanel {
         
         //mengubah nilai JK dari lanel menjadi format singkatan yang disimpan di database
         switch (JK){
-            case "Laki-Laki":
+            case "Laki - laki":
                 j_k = "L";
                 break;
             case "Perempuan":
                 j_k = "P";
                 break;
             default:
-                j_k = "null";
+                j_k = null;
                 break;
         }
 
-        //Query SQL untuk menyisipkan data ke tabel jurusan
+        //Query SQL untuk menyisipkan data ke tabel guru
         String sql = "INSERT INTO guru(NIP, nama_guru, gender, alamat) VALUES(?,?,?,?)";
 
         try {
@@ -419,6 +423,11 @@ public class panelGuru extends javax.swing.JPanel {
         //Ambil input dari text field dan combo box pada GUI
         String NIP = tNIP.getText();
         String namaGuru = tNamaGuru.getText();
+        
+        if (cJK.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Jenis kelamin harus dipilih!");
+            return;
+        }
         String JK = cJK.getSelectedItem().toString();
         String alamat = tAlamat.getText();
 
@@ -427,19 +436,19 @@ public class panelGuru extends javax.swing.JPanel {
         
         //mengubah nilai JK dari lanel menjadi format singkatan yang disimpan di database
         switch (JK){
-            case "Laki-Laki":
+            case "Laki - laki":
                 j_k = "L";
                 break;
             case "Perempuan":
                 j_k = "P";
                 break;
             default:
-                j_k = "null";
+                j_k = null;
                 break;
         }
         
         //Query SQL untuk mengubah data pada tabel jurusan
-        String sql = "UPDATE guru SET nama_guru=? WHERE nip=?";
+        String sql = "UPDATE guru SET nama_guru=?, gender=?, alamat=? WHERE nip=?";
         
         try {
             //Buat koneksi ke database menggunakan method koneksi() dari class koneksi
@@ -449,10 +458,10 @@ public class panelGuru extends javax.swing.JPanel {
             PreparedStatement ps = conn.prepareStatement(sql);
 
             //Isi parameter
-            ps.setString(1, NIP);
-            ps.setString(2, namaGuru);
-            ps.setString(3, j_k);
-            ps.setString(4, alamat);
+            ps.setString(1, namaGuru);
+            ps.setString(2, j_k);
+            ps.setString(3, alamat);
+            ps.setString(4, NIP);
 
             //Jalankan query untuk menyimpan data ke database
             ps.execute();

@@ -48,6 +48,9 @@ public class panelSiswa extends javax.swing.JPanel {
 
         // Mengosongkan field NIS
         tNIS.setText(null);
+        
+        //aktifkan kembali text field NIP agar bisa diedit
+        tNIS.setEditable(true);
 
         // Mengosongkan field Nama Siswa
         tNamaSiswa.setText(null);
@@ -288,7 +291,7 @@ public class panelSiswa extends javax.swing.JPanel {
         jLabel5.setText("Jenis kelamin");
 
         cJK.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        cJK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-Laki", "Perempuan" }));
+        cJK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - laki", "Perempuan" }));
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel6.setText("Tempat Lahir");
@@ -307,7 +310,6 @@ public class panelSiswa extends javax.swing.JPanel {
         jLabel9.setText("Alamat");
 
         cKelas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cKelas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel10.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel10.setText("Kelas");
@@ -475,119 +477,119 @@ public class panelSiswa extends javax.swing.JPanel {
     private void tblSiswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSiswaMouseClicked
         // TODO add your handling code here:
         // Mengambil indeks baris yang diklik pada tabel siswa
-    int baris = tblSiswa.rowAtPoint(evt.getPoint());
+        int baris = tblSiswa.rowAtPoint(evt.getPoint());
 
-    // Mengambil nilai dari kolom pertama (NIS) pada baris yang diklik dan mengubah ke String
-    String nis = tblSiswa.getValueAt(baris, 0).toString();
+        // Mengambil nilai dari kolom pertama (NIS) pada baris yang diklik dan mengubah ke String
+        String nis = tblSiswa.getValueAt(baris, 0).toString();
 
-    // Mengambil nilai dari kolom kedua (Nama Siswa)
-    String namaSiswa = tblSiswa.getValueAt(baris, 1).toString();
+        // Mengambil nilai dari kolom kedua (Nama Siswa)
+        String namaSiswa = tblSiswa.getValueAt(baris, 1).toString();
 
-    // Mengambil objek dari kolom ketiga (Jenis Kelamin)
-    Object jkObj = tblSiswa.getValueAt(baris, 2);
+        // Mengambil objek dari kolom ketiga (Jenis Kelamin)
+        Object jkObj = tblSiswa.getValueAt(baris, 2);
 
-    // Mengambil objek dari kolom keempat (Tempat Lahir)
-    Object tempatObj = tblSiswa.getValueAt(baris, 3);
+        // Mengambil objek dari kolom keempat (Tempat Lahir)
+        Object tempatObj = tblSiswa.getValueAt(baris, 3);
 
-    // Mengambil objek dari kolom kelima (Tanggal Lahir)
-    Object tglObj = tblSiswa.getValueAt(baris, 4);
+        // Mengambil objek dari kolom kelima (Tanggal Lahir)
+        Object tglObj = tblSiswa.getValueAt(baris, 4);
 
-    // Mengambil objek dari kolom keenam (Kelas)
-    Object kelasObj = tblSiswa.getValueAt(baris, 5);
+        // Mengambil objek dari kolom keenam (Kelas)
+        Object kelasObj = tblSiswa.getValueAt(baris, 5);
 
-    // Mengambil objek dari kolom ketujuh (Nomor HP)
-    Object hpObj = tblSiswa.getValueAt(baris, 6);
-    
-    //mengambil objek dari kolom kedelapan (alamat)
-    Object alamatObj = tblSiswa.getValueAt(baris, 7);
+        // Mengambil objek dari kolom ketujuh (Nomor HP)
+        Object hpObj = tblSiswa.getValueAt(baris, 6);
 
-    // Menampilkan nilai NIS pada field input dan membuatnya tidak bisa diubah
-    tNIS.setText(nis);
-    tNIS.setEditable(false);
+        //mengambil objek dari kolom kedelapan (alamat)
+        Object alamatObj = tblSiswa.getValueAt(baris, 7);
 
-    // Menampilkan nama siswa ke field input
-    tNamaSiswa.setText(namaSiswa);
+        // Menampilkan nilai NIS pada field input dan membuatnya tidak bisa diubah
+        tNIS.setText(nis);
+        tNIS.setEditable(false);
 
-    // Mengonversi objek menjadi string, jika null maka hasilnya null atau string kosong
-    String jenisKelamin = (jkObj != null) ? jkObj.toString() : "";
-    String tempatLahir = (tempatObj != null) ? tempatObj.toString() : "";
-    String tglLahir = (tglObj != null) ? tglObj.toString() : null;
-    String idKelas = (kelasObj != null) ? kelasObj.toString() : null;
-    String noHP = (hpObj != null) ? hpObj.toString() : "";
-    String alamat = (alamatObj != null) ? alamatObj.toString() : "";
+        // Menampilkan nama siswa ke field input
+        tNamaSiswa.setText(namaSiswa);
 
-    // Menampilkan tempat lahir, no HP, dan memilih kelas sesuai data
-    tTempatLahir.setText(tempatLahir);
-    tHP.setText(noHP);
-    cKelas.setSelectedItem(idKelas);
+        // Mengonversi objek menjadi string, jika null maka hasilnya null atau string kosong
+        String jenisKelamin = (jkObj != null) ? jkObj.toString() : "";
+        String tempatLahir = (tempatObj != null) ? tempatObj.toString() : "";
+        String tglLahir = (tglObj != null) ? tglObj.toString() : null;
+        String idKelas = (kelasObj != null) ? kelasObj.toString() : null;
+        String noHP = (hpObj != null) ? hpObj.toString() : "";
+        String alamat = (alamatObj != null) ? alamatObj.toString() : "";
 
-    // Jika tanggal lahir tidak null dan tidak kosong, ubah ke format Date dan tampilkan di komponen kalender
-    if (tglLahir != null && !tglLahir.isEmpty()) {
-        try {
-            tTanggal.setDate(java.sql.Date.valueOf(tglLahir));
-        } catch (IllegalArgumentException e) {
-            // Jika gagal parsing tanggal, kosongkan field tanggal
+        // Menampilkan tempat lahir, no HP, dan memilih kelas sesuai data
+        tTempatLahir.setText(tempatLahir);
+        tHP.setText(noHP);
+        cKelas.setSelectedItem(idKelas);
+
+        // Jika tanggal lahir tidak null dan tidak kosong, ubah ke format Date dan tampilkan di komponen kalender
+        if (tglLahir != null && !tglLahir.isEmpty()) {
+            try {
+                tTanggal.setDate(java.sql.Date.valueOf(tglLahir));
+            } catch (IllegalArgumentException e) {
+                // Jika gagal parsing tanggal, kosongkan field tanggal
+                tTanggal.setDate(null);
+            }
+        } else {
             tTanggal.setDate(null);
         }
-    } else {
-        tTanggal.setDate(null);
-    }
 
-    // Konversi kode jenis kelamin ke bentuk tampilan yang dipahami pengguna
-    switch (jenisKelamin) {
-        case "L":
-            cJK.setSelectedItem("Laki-Laki");
-            break;
-        case "P":
-            cJK.setSelectedItem("Perempuan");
-            break;
-        default:
-            cJK.setSelectedItem(null);
-            break;
-    }
-
-    try {
-        // Query untuk mengambil data alamat dan foto berdasarkan NIS
-        String sql = "SELECT alamat, foto FROM siswa WHERE nis = ?";
-
-        // Membuka koneksi ke database
-        Connection conn = koneksi.konek();
-
-        // Menyiapkan statement SQL dengan parameter
-        PreparedStatement ps = conn.prepareStatement(sql);
-
-        // Mengisi parameter dengan NIS
-        ps.setString(1, nis);
-
-        // Menjalankan query dan menyimpan hasilnya
-        ResultSet rs = ps.executeQuery();
-
-        // Jika data ditemukan
-        if (rs.next()) {
-            // Mengambil alamat dan foto dari hasil query
-            //String alamat = rs.getString("alamat");
-            String foto = rs.getString("foto");
-
-            // Menampilkan alamat ke field input
-            tAlamat.setText(alamat);
-
-            // Jika path foto tidak kosong, tampilkan gambar ke label foto
-            if (foto != null && !foto.isEmpty()) {
-                ImageIcon icon = new ImageIcon(foto);
-                Image image = icon.getImage().getScaledInstance(tFoto.getWidth(), tFoto.getHeight(), Image.SCALE_SMOOTH);
-                tFotoPath.setText(foto);
-                tFoto.setText(null);
-                tFoto.setIcon(new ImageIcon(image));
-            } else {
-                // Jika tidak ada foto, set teks "Foto" dan hapus icon
-                tFoto.setText("Foto");
-                tFoto.setIcon(null);
-            }
+        // Konversi kode jenis kelamin ke bentuk tampilan yang dipahami pengguna
+        switch (jenisKelamin) {
+            case "L":
+                cJK.setSelectedItem("Laki - laki");
+                break;
+            case "P":
+                cJK.setSelectedItem("Perempuan");
+                break;
+            default:
+                cJK.setSelectedItem(null);
+                break;
         }
-    } catch (SQLException e) {
-        // Menampilkan error ke konsol jika terjadi kesalahan SQL
-        System.err.println(e.getMessage());
-    }
+
+        try {
+            // Query untuk mengambil data alamat dan foto berdasarkan NIS
+            String sql = "SELECT alamat, foto FROM siswa WHERE nis = ?";
+
+            // Membuka koneksi ke database
+            Connection conn = koneksi.konek();
+
+            // Menyiapkan statement SQL dengan parameter
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            // Mengisi parameter dengan NIS
+            ps.setString(1, nis);
+
+            // Menjalankan query dan menyimpan hasilnya
+            ResultSet rs = ps.executeQuery();
+
+            // Jika data ditemukan
+            if (rs.next()) {
+                // Mengambil alamat dan foto dari hasil query
+                //String alamat = rs.getString("alamat");
+                String foto = rs.getString("foto");
+
+                // Menampilkan alamat ke field input
+                tAlamat.setText(alamat);
+
+                // Jika path foto tidak kosong, tampilkan gambar ke label foto
+                if (foto != null && !foto.isEmpty()) {
+                    ImageIcon icon = new ImageIcon(foto);
+                    Image image = icon.getImage().getScaledInstance(tFoto.getWidth(), tFoto.getHeight(), Image.SCALE_SMOOTH);
+                    tFotoPath.setText(foto);
+                    tFoto.setText(null);
+                    tFoto.setIcon(new ImageIcon(image));
+                } else {
+                    // Jika tidak ada foto, set teks "Foto" dan hapus icon
+                    tFoto.setText("Foto");
+                    tFoto.setIcon(null);
+                }
+            }
+        } catch (SQLException e) {
+            // Menampilkan error ke konsol jika terjadi kesalahan SQL
+            System.err.println(e.getMessage());
+        }
     }//GEN-LAST:event_tblSiswaMouseClicked
 
     private void tFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tFotoMouseClicked
@@ -657,6 +659,10 @@ public class panelSiswa extends javax.swing.JPanel {
         // Mengambil teks dari field Nama Siswa
         String namaSiswa = tNamaSiswa.getText();
 
+        if (cJK.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Jenis kelamin harus dipilih!");
+            return;
+        }
         // Mengambil item yang dipilih dari combo box jenis kelamin dan mengubahnya menjadi string
         String jenisKelamin = cJK.getSelectedItem().toString();
 
@@ -675,6 +681,10 @@ public class panelSiswa extends javax.swing.JPanel {
         // Mengambil teks dari field nomor HP
         String hp = tHP.getText();
 
+        if (cKelas.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Kelas harus dipilih!");
+            return;
+        }
         // Mengambil item yang dipilih dari combo box kelas
         String kelas = cKelas.getSelectedItem().toString();
 
@@ -682,11 +692,13 @@ public class panelSiswa extends javax.swing.JPanel {
         String alamat = tAlamat.getText();
 
         // Mengambil path file dari label path foto
-        String filePath = tFotoPath.getText();
+        Object filePathObj = tFotoPath.getText();
+        
+        String filePath = (filePathObj != null) ? filePathObj.toString() : "";
 
         // Konversi jenis kelamin dari teks menjadi kode (L atau P)
         switch (jenisKelamin) {
-            case "Laki-Laki":
+            case "Laki - laki":
                 jK = "L";
                 break;
             case "Perempuan":
@@ -812,12 +824,14 @@ public class panelSiswa extends javax.swing.JPanel {
         // Mengambil Alamat dari field input
         String alamat = tAlamat.getText();
 
-        // Mengambil path file foto dari field input tersembunyi
-        String filePath = tFotoPath.getText();
+        // Mengambil path file dari label path foto
+        Object filePathObj = tFotoPath.getText();
+        
+        String filePath = (filePathObj != null) ? filePathObj.toString() : "";
 
         // Mengonversi pilihan jenis kelamin ke kode (L/P)
         switch (jenisKelamin) {
-            case "Laki-Laki":
+            case "Laki - laki":
                 jK = "L";
                 break;
             case "Perempuan":

@@ -29,6 +29,7 @@ public class frameLogin extends javax.swing.JFrame {
     public frameLogin() {
         initComponents();
     }
+
   
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,7 +72,6 @@ public class frameLogin extends javax.swing.JFrame {
         jLabel4.setText("Password");
 
         tPassword.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
-        tPassword.setText("jPasswordField1");
 
         bLogin.setBackground(new java.awt.Color(0, 51, 255));
         bLogin.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
